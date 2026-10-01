@@ -25,6 +25,8 @@ jobs:
           bundler-cache: true
       - uses: actions/configure-pages@v5
         id: pages
+        with:
+          enablement: true
       - name: Build site
         env:
           JEKYLL_ENV: production
