@@ -126,13 +126,13 @@ summary:focus-visible {
 .main-content {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 78px 48px 96px;
+  padding: 96px 48px 120px;
   width: 100%;
 }
 
 .main-content:focus { outline: none; }
 
-.page-header { margin: 0 0 46px; }
+.page-header { margin: 0 0 64px; }
 
 .page-header h1 {
   font-family: var(--ui);
@@ -148,12 +148,12 @@ summary:focus-visible {
   display: grid;
   gap: 2.2rem;
   grid-template-columns: 46px minmax(0, 1fr);
-  padding: 0 0 34px;
+  padding: 0 0 52px;
 }
 
 .entry-preview + .entry-preview {
   border-top: 1px solid var(--rule);
-  padding-top: 32px;
+  padding-top: 50px;
 }
 
 .date-lockup {
@@ -177,22 +177,24 @@ summary:focus-visible {
 }
 
 .entry-link {
+  display: block;
   font-size: clamp(1.08rem, 1.55vw, 1.35rem);
   line-height: 1.52;
   text-decoration: none;
   text-wrap: pretty;
 }
 
-.entry-link span {
+.entry-link p {
   background-image: linear-gradient(var(--ink), var(--ink));
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 1px;
+  margin: 0;
   transition: background-size 180ms ease;
 }
 
-.entry-link:hover span,
-.entry-link:focus-visible span { background-size: 100% 1px; }
+.entry-link:hover p,
+.entry-link:focus-visible p { background-size: 100% 1px; }
 
 .single-entry {
   margin: 0 auto;
@@ -264,10 +266,10 @@ summary:focus-visible {
 
   .main-content {
     max-width: 700px;
-    padding: 48px 24px 72px;
+    padding: 60px 24px 88px;
   }
 
-  .page-header { margin-bottom: 38px; }
+  .page-header { margin-bottom: 52px; }
 
   .page-header h1 {
     font-size: 1.05rem;
@@ -277,10 +279,10 @@ summary:focus-visible {
   .entry-preview {
     gap: 1.15rem;
     grid-template-columns: 38px minmax(0, 1fr);
-    padding-bottom: 28px;
+    padding-bottom: 40px;
   }
 
-  .entry-preview + .entry-preview { padding-top: 26px; }
+  .entry-preview + .entry-preview { padding-top: 38px; }
 
   .entry-link {
     font-size: 1.08rem;
@@ -290,5 +292,5 @@ summary:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .entry-link span { transition: none; }
+  .entry-link p { transition: none; }
 }

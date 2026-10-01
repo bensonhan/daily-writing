@@ -26,7 +26,7 @@ Your writing begins here.
 Start a new paragraph after a blank line.
 ```
 
-Append entries in whichever order is convenient. The site sorts them by date automatically. The monthly filename and date headings supply the weekday, full display date, permanent URL, archive month, homepage ordering, and the first 100 words used as each excerpt.
+Append entries in whichever order is convenient. The site sorts them by date automatically. The monthly filename and date headings supply the weekday, full display date, permanent URL, archive month, and homepage ordering. The first paragraph becomes the feed excerpt, and the homepage always shows the complete latest month.
 
 3. Preview and publish:
 

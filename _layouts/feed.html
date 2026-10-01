@@ -1,9 +1,10 @@
 ---
 layout: default
 ---
-{% assign feed_entries = page.entries | default: site.latest_entries %}
+{% assign feed_entries = page.entries | default: site.latest_month_entries %}
+{% assign feed_heading = page.eyebrow | default: site.latest_month_label %}
 <header class="page-header">
-  <h1>{{ page.eyebrow }}</h1>
+  <h1>{{ feed_heading }}</h1>
 </header>
 
 <div class="entry-list">
@@ -11,4 +12,3 @@ layout: default
     {% include entry-preview.html entry=entry %}
   {% endfor %}
 </div>
-

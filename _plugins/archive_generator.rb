@@ -12,6 +12,7 @@ module DailyWriting
       self.data = {
         "layout" => "entry",
         "date" => date,
+        "excerpt" => body.split(/\r?\n\s*\r?\n/, 2).first.strip,
         "permalink" => "/#{dir}/",
         "archive_url" => date.strftime("/%Y/%m/")
       }
@@ -43,9 +44,13 @@ module DailyWriting
       site.pages.concat(entries)
 
       entries.sort_by! { |entry| entry.data.fetch("date") }.reverse!
-      site.config["latest_entries"] = entries.first(7)
 
       grouped = entries.group_by { |entry| entry.data.fetch("date").strftime("%Y-%m") }
+      latest_month = entries.first.data.fetch("date")
+      latest_month_key = latest_month.strftime("%Y-%m")
+      site.config["latest_month_entries"] = grouped.fetch(latest_month_key)
+      site.config["latest_month_label"] = latest_month.strftime("%B %Y")
+
       grouped.each do |key, month_entries|
         year, month = key.split("-").map(&:to_i)
         site.pages << ArchivePage.new(site, year, month, month_entries)

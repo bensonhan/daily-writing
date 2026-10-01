@@ -5,7 +5,6 @@
     <strong>{{ entry.date | date: "%-d" }}</strong>
   </time>
   <a class="entry-link" href="{{ entry.url | relative_url }}" aria-label="Read entry from {{ entry.date | date: '%A, %B %-d, %Y' }}">
-    <span>{{ entry.content | markdownify | strip_html | normalize_whitespace | truncatewords: 100 }}</span>
+    {{ entry.excerpt | markdownify }}
   </a>
 </article>
-
