@@ -1,0 +1,16 @@
+<aside class="archive-rail" aria-label="Site and archive navigation">
+  <a class="identity" href="{{ '/' | relative_url }}" aria-label="BH daily writing home">BH</a>
+
+  <nav class="desktop-archive" aria-label="Writing archive">
+    <p class="archive-label">Archive</p>
+    {% include archive-tree.html %}
+  </nav>
+
+  <details class="mobile-archive">
+    <summary>Archive</summary>
+    <nav aria-label="Writing archive">
+      {% include archive-tree.html %}
+    </nav>
+  </details>
+</aside>
+

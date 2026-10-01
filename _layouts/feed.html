@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% assign feed_entries = page.entries | default: site.latest_entries %}
+<header class="page-header">
+  <h1>{{ page.eyebrow }}</h1>
+</header>
+
+<div class="entry-list">
+  {% for entry in feed_entries %}
+    {% include entry-preview.html entry=entry %}
+  {% endfor %}
+</div>
+

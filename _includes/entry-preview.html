@@ -1,0 +1,11 @@
+{% assign entry = include.entry %}
+<article class="entry-preview">
+  <time class="date-lockup" datetime="{{ entry.date | date: '%Y-%m-%d' }}">
+    <span>{{ entry.date | date: "%a" | upcase }}</span>
+    <strong>{{ entry.date | date: "%-d" }}</strong>
+  </time>
+  <a class="entry-link" href="{{ entry.url | relative_url }}" aria-label="Read entry from {{ entry.date | date: '%A, %B %-d, %Y' }}">
+    <span>{{ entry.content | markdownify | strip_html | normalize_whitespace | truncatewords: 100 }}</span>
+  </a>
+</article>
+

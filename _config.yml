@@ -1,0 +1,12 @@
+title: Daily Writing
+description: Daily writing by BH
+url: ""
+baseurl: ""
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - design
+  - scripts
+  - writing

@@ -1,0 +1,15 @@
+<div class="archive-tree">
+  {% for archive_year in site.archive_tree %}
+    <details class="archive-year"{% if archive_year.year == site.latest_year %} open{% endif %}>
+      <summary>{{ archive_year.year }}</summary>
+      <ul>
+        {% for archive_month in archive_year.months %}
+          <li>
+            <a href="{{ archive_month.url | relative_url }}"{% if page.archive_url == archive_month.url %} aria-current="page"{% endif %}>{{ archive_month.name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </details>
+  {% endfor %}
+</div>
+
