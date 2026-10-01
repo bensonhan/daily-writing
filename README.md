@@ -12,11 +12,13 @@ writing/2026-10.md
 
 If it does not exist yet, create it with:
 
-```sh
-ruby scripts/new_month.rb 2026-10
+```markdown
+# October 2026
 ```
 
-2. Add the date as a level-two heading, followed by the entry:
+The filename must use `YYYY-MM.md`, and its heading should name the month and year.
+
+2. Add the newest date directly below the month heading, followed by the entry:
 
 ```markdown
 ## 2026-10-01
@@ -26,7 +28,7 @@ Your writing begins here.
 Start a new paragraph after a blank line.
 ```
 
-Append entries in whichever order is convenient. The site sorts them by date automatically. The monthly filename and date headings supply the weekday, full display date, permanent URL, archive month, and homepage ordering. The first paragraph becomes the feed excerpt, and the homepage always shows the complete latest month.
+Keep entries newest first so the place where you write is always at the top of the file. The site also sorts them by date automatically, so a misplaced entry will not affect the website. The monthly filename and date headings supply the weekday, full display date, permanent URL, archive month, and homepage ordering. The first paragraph—up to 80 words—becomes the feed excerpt, and the homepage always shows the complete latest month.
 
 3. Preview and publish:
 
@@ -38,24 +40,6 @@ git push
 ```
 
 Pushing to `main` triggers the GitHub Pages deployment.
-
-## Import several pasted entries
-
-The importer accepts blocks in this format:
-
-```text
-Thursday
-10/01/2026
-Your writing begins here.
-```
-
-Run:
-
-```sh
-ruby scripts/import_dated_paste.rb /path/to/pasted-text.txt
-```
-
-It checks that each weekday matches its date, normalizes pasted spacing, and adds or replaces dated sections in the corresponding monthly files.
 
 ## Run locally
 

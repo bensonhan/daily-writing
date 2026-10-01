@@ -1,5 +1,8 @@
 <aside class="archive-rail" aria-label="Site and archive navigation">
-  <a class="identity" href="{{ '/' | relative_url }}" aria-label="BH daily writing home">BH</a>
+  <div class="rail-header">
+    <a class="identity" href="{{ '/' | relative_url }}" aria-label="BH daily writing home">BH</a>
+    <button class="rail-toggle" type="button" data-archive-toggle aria-expanded="true" aria-label="Minimize archive sidebar"></button>
+  </div>
 
   <nav class="desktop-archive" aria-label="Writing archive">
     <p class="archive-label">Archive</p>
@@ -13,4 +16,3 @@
     </nav>
   </details>
 </aside>
-

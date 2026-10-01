@@ -6,13 +6,25 @@ module DailyWriting
   class EntryPage < Jekyll::PageWithoutAFile
     def initialize(site, date, body)
       dir = date.strftime("%Y/%m/%d")
+      body_parts = body.split(/\r?\n\s*\r?\n/, 2)
+      first_paragraph = body_parts.first.strip
+      preview_words = first_paragraph.split(/\s+/)
+      has_more = preview_words.length > 80 || body_parts.drop(1).any? { |part| !part.strip.empty? }
+      preview = if has_more
+        visible_word_count = [preview_words.length, 80].min
+        visible_word_count -= 1 if visible_word_count > 1
+        "#{preview_words.first(visible_word_count).join(" ")}…"
+      else
+        first_paragraph
+      end
+
       super(site, site.source, dir, "index.md")
 
       self.content = body
       self.data = {
         "layout" => "entry",
         "date" => date,
-        "excerpt" => body.split(/\r?\n\s*\r?\n/, 2).first.strip,
+        "excerpt" => preview,
         "permalink" => "/#{dir}/",
         "archive_url" => date.strftime("/%Y/%m/")
       }
