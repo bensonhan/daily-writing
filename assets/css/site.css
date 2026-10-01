@@ -207,12 +207,6 @@ summary:focus-visible {
 
 .archive-year a:hover { color: var(--ink); }
 
-.archive-year a[aria-current="page"] {
-  background: #eeeae2;
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .mobile-archive { display: none; }
 
 .main-content {

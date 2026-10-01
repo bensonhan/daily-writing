@@ -5,11 +5,10 @@
       <ul>
         {% for archive_month in archive_year.months %}
           <li>
-            <a href="{{ archive_month.url | relative_url }}"{% if page.archive_url == archive_month.url %} aria-current="page"{% endif %}>{{ archive_month.name }}</a>
+            <a href="{{ archive_month.url | relative_url }}">{{ archive_month.name }}</a>
           </li>
         {% endfor %}
       </ul>
     </details>
   {% endfor %}
 </div>
-
