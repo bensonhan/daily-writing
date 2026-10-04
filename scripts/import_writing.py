@@ -299,7 +299,11 @@ def main() -> int:
 
     if written:
         for path in written:
-            print(f"Generated {path}")
+            dates = re.findall(r"^## (\d{4}-\d{2}-\d{2})$", path.read_text(encoding="utf-8"), re.MULTILINE)
+            print(
+                f"Generated {path}: {len(dates)} entries, "
+                f"{dates[-1]} through {dates[0]}"
+            )
     else:
         print(f"No writing uploads found in {args.input_dir}")
     return 0
