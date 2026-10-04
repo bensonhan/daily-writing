@@ -2,6 +2,8 @@
 
 A minimal Jekyll site for titleless daily writing. Write in Google Docs, then upload one export per month.
 
+Read the published entries at [bensonhan.github.io/daily-writing](https://bensonhan.github.io/daily-writing/).
+
 ## Publish a month from Google Docs
 
 1. Use one Google Doc per month. Start each entry with its date on a line by itself. These formats all work:
@@ -37,6 +39,8 @@ git push
 
 The GitHub Pages workflow normalizes the upload into the site's existing monthly Markdown format and then deploys it. The generated file is build-only; your uploaded export remains the source of truth.
 
+The site sorts entries by date automatically. The first paragraph—up to 80 words—becomes the feed excerpt, and the homepage shows the complete latest month.
+
 ## Preview an upload locally
 
 Install the importer once, convert the uploads, and start Jekyll:
@@ -48,20 +52,6 @@ bundle exec jekyll serve
 ```
 
 Open <http://127.0.0.1:4000>. Generated files go in `.generated-writing/`, which Git ignores.
-
-## Legacy Markdown format
-
-Existing months can remain in `writing/YYYY-MM.md`. A month must come from either `writing` or `uploads`, not both. The Markdown format is:
-
-```markdown
-# October 2026
-
-## 2026-10-01
-
-Your writing begins here.
-```
-
-The site sorts entries by date automatically. The first paragraph—up to 80 words—becomes the feed excerpt, and the homepage shows the complete latest month.
 
 ## Run locally
 
