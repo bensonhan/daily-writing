@@ -90,7 +90,11 @@ module DailyWriting
       seen_dates = {}
       pattern = /^##\s+(\d{4}-\d{2}-\d{2})\s*$\r?\n(.*?)(?=^##\s+\d{4}-\d{2}-\d{2}\s*$|\z)/m
 
-      Dir[site.in_source_dir("writing", "*.md")].sort.flat_map do |path|
+      source_paths = ["writing", ".generated-writing"].flat_map do |directory|
+        Dir[site.in_source_dir(directory, "*.md")]
+      end
+
+      source_paths.sort.flat_map do |path|
         source_month = File.basename(path, ".md")
         unless source_month.match?(/\A\d{4}-\d{2}\z/)
           Jekyll.logger.abort_with "Monthly writing filenames must use YYYY-MM.md:", path

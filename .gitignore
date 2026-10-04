@@ -3,4 +3,6 @@ _site/
 .jekyll-metadata
 .bundle/
 vendor/
-
+.generated-writing/
+__pycache__/
+*.py[cod]

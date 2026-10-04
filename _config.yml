@@ -9,4 +9,8 @@ exclude:
   - Gemfile.lock
   - design
   - scripts
+  - tests
+  - uploads
   - writing
+  - .generated-writing
+  - requirements-import.txt
