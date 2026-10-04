@@ -1,7 +1,10 @@
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from datetime import date
+from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.import_writing import (
     GENERATED_MARKER,
@@ -171,6 +174,39 @@ class ImportWritingTest(unittest.TestCase):
             self.assertEqual(
                 ["October 2026", "October 3, 2026", "First.", "Second."],
                 extract_text_upload(source),
+            )
+
+    def test_cli_reports_entry_count_and_date_range(self):
+        from scripts.import_writing import main
+
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            uploads = root / "uploads"
+            generated = root / ".generated-writing"
+            writing = root / "writing"
+            uploads.mkdir()
+            writing.mkdir()
+            (uploads / "2026-10.md").write_text(
+                "10/3/2026\nNewest.\n10/1/2026\nEarlier.\n",
+                encoding="utf-8",
+            )
+            output = StringIO()
+            arguments = [
+                "import_writing.py",
+                "--input-dir",
+                str(uploads),
+                "--output-dir",
+                str(generated),
+                "--writing-dir",
+                str(writing),
+            ]
+
+            with patch("sys.argv", arguments), redirect_stdout(output):
+                self.assertEqual(0, main())
+
+            self.assertIn(
+                "2 entries, 2026-10-01 through 2026-10-03",
+                output.getvalue(),
             )
 
 

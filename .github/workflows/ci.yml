@@ -16,12 +16,12 @@ jobs:
     name: Test and build site
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3"
           bundler-cache: true
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
@@ -31,7 +31,12 @@ jobs:
       - name: Test writing importer
         run: python -m unittest discover -s tests -v
       - name: Convert writing uploads
-        run: python scripts/import_writing.py
+        run: |
+          python scripts/import_writing.py | tee import-report.txt
+          echo "## Writing import" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          cat import-report.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
       - name: Build site
         env:
           JEKYLL_ENV: production
