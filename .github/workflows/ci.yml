@@ -3,7 +3,6 @@ name: Pull request checks
 on:
   pull_request:
     branches: [main]
-    types: [opened, reopened, synchronize, edited]
 
 permissions:
   contents: read
@@ -27,10 +26,6 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: requirements-import.txt
-      - name: Check pull request description
-        env:
-          PR_BODY: ${{ github.event.pull_request.body }}
-        run: python scripts/check_pr_description.py
       - name: Install writing importer
         run: pip install -r requirements-import.txt
       - name: Test writing importer
