@@ -4,7 +4,8 @@
     <span>{{ entry.date | date: "%a" | upcase }}</span>
     <strong>{{ entry.date | date: "%-d" }}</strong>
   </time>
-  <a class="entry-link" href="{{ entry.url | relative_url }}" aria-label="Read entry from {{ entry.date | date: '%A, %B %-d, %Y' }}">
+  <div class="entry-excerpt">
     {{ entry.excerpt | markdownify }}
-  </a>
+  </div>
+  <a class="entry-permalink" href="{{ entry.url | relative_url }}" aria-label="Read entry from {{ entry.date | date: '%A, %B %-d, %Y' }}"></a>
 </article>
