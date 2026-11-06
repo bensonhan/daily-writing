@@ -29,8 +29,6 @@ uploads/2026-10.md
 
 Upload only one file for each month. Text-only documents work best; embedded images and tables are not supported.
 
-YouTube links in your writing automatically display a responsive video player beneath their paragraph on the website. Keep linking videos normally in Google Docs; the original link stays available alongside the player. Players appear in monthly previews when the link is in the excerpt, and in full entries.
-
 4. Upload it on GitHub: open the `uploads` folder, choose **Add file → Upload files**, drag in the export, and commit the change. Or use Git:
 
 ```sh

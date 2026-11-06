@@ -303,27 +303,13 @@ summary:focus-visible {
   margin: 0;
 }
 
-.entry-excerpt a,
-.entry-excerpt .youtube-embed {
+.entry-excerpt a {
   position: relative;
   z-index: 1;
 }
 
 .entry-excerpt,
 .entry-body { min-width: 0; overflow-wrap: anywhere; }
-
-.youtube-embed {
-  aspect-ratio: 16 / 9;
-  margin: 1rem 0;
-}
-
-.youtube-embed iframe {
-  border: 0;
-  border-radius: var(--radius-small);
-  display: block;
-  height: 100%;
-  width: 100%;
-}
 
 .single-entry {
   margin: 0 auto;
